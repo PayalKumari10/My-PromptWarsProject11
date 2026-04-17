@@ -2,6 +2,12 @@
 
 An AI-powered web application built for **PromptWars Virtual** that generates personalized Data Structures & Algorithms (DSA) study roadmaps based on user goals, duration, and selected topics.
 
+Students learning Data Structures and Algorithms often feel confused about what topic to study next.
+
+They waste time switching between resources, following random roadmaps, and lack a clear structured plan based on their available time.
+
+This leads to inconsistency and slow preparation.
+
 This project focuses on intent-driven development, leveraging AI to solve a real problem:  
 👉 **“What should I study next in DSA?”**
 
