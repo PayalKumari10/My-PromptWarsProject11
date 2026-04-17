@@ -34,17 +34,19 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!', details: err.message });
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/aistudyplanner')
+if (!process.env.MONGODB_URI) {
+  console.error("FATAL ERROR: MONGODB_URI is not defined.");
+  process.exit(1);
+}
+
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log('Connected to MongoDB');
+    console.log('Connected to MongoDB Atlas');
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error.message);
-    // Continue running even without DB to not crash completely, just for demo
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT} (without DB)`);
-    });
+    process.exit(1);
   });
