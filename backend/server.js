@@ -6,7 +6,7 @@ const authRoutes = require('./routes/auth');
 const roadmapRoutes = require('./routes/roadmap');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = parseInt(process.env.PORT || '5000', 10);
 
 // Middleware
 app.use(cors());
@@ -34,19 +34,20 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Something went wrong!', details: err.message });
 });
 
-if (!process.env.MONGODB_URI) {
-  console.error("FATAL ERROR: MONGODB_URI is not defined.");
-  process.exit(1);
-}
+// Start the server FIRST to ensure Cloud Run registers container as healthy
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on host 0.0.0.0 and port ${PORT}`);
+});
 
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => {
-    console.log('Connected to MongoDB Atlas');
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
+// Attempt MongoDB Connection asynchronously
+if (!process.env.MONGODB_URI) {
+  console.error("WARNING: MONGODB_URI is not defined.");
+} else {
+  mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+      console.log('Connected to MongoDB Atlas');
+    })
+    .catch((error) => {
+      console.error('Error connecting to MongoDB:', error.message);
     });
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error.message);
-    process.exit(1);
-  });
+}
