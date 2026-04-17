@@ -1,211 +1,132 @@
 # 🚀 AI Study Planner for DSA (PromptWars Project)
 
-An AI-powered web application built for **PromptWars Virtual** that generates personalized Data Structures & Algorithms (DSA) study roadmaps based on user goals, duration, and selected topics.
+An AI-powered full-stack web application built for **PromptWars Virtual**, designed to help students create personalized, structured Data Structures & Algorithms (DSA) study roadmaps using AI.
 
-Students learning Data Structures and Algorithms often feel confused about what topic to study next.
-
-They waste time switching between resources, following random roadmaps, and lack a clear structured plan based on their available time.
-
-This leads to inconsistency and slow preparation.
-
-This project focuses on intent-driven development, leveraging AI to solve a real problem:  
-👉 **“What should I study next in DSA?”**
+It removes confusion in learning by guiding students on **what to study next, based on their goals and time availability.**
 
 ---
 
-## 🎯 Problem Statement
+# 🧠 Problem Statement
 
-Many students struggle with:
+Students learning Data Structures and Algorithms often struggle with:
 
-- No clear DSA roadmap  
-- Random topic jumping  
-- Lack of consistency  
+- Not knowing what topic to study next  
+- Following random and inconsistent roadmaps  
+- Switching between multiple resources without structure  
+- Lack of a clear, goal-based learning path  
 
-This project solves that by generating a **structured, goal-based learning plan instantly using AI**.
-
----
-
-## ✨ Features
-
-- 🎯 Goal-based planning (15 / 60 / 90 days)  
-- 🧠 AI-generated roadmap using Gemini API  
-- 🗂️ Custom topic selection (or full DSA roadmap)  
-- 📅 Day-wise breakdown (concepts + problems)  
-- 🔐 Authentication system (JWT-based login/signup)  
-- 📱 Clean and responsive UI  
-- ⚡ Fast roadmap generation  
+This leads to wasted time and slow preparation.
 
 ---
 
-## 🛠️ Tech Stack
+# 💡 Solution
 
-### Frontend
+This project solves the problem by generating a **personalized, structured, day-by-day DSA roadmap** based on:
+
+- Selected time duration (15 / 60 / 90 days)  
+- Chosen topics or full DSA coverage  
+- Learning progression logic powered by AI  
+
+👉 The system acts as a **decision-making assistant** that tells students exactly what to study next.
+
+---
+
+# ✨ Key Features
+
+- 🎯 Goal-based roadmap generation (15 / 60 / 90 days)  
+- 🧠 AI-generated structured learning plan using Gemini API  
+- 🗂️ Custom topic selection or full DSA roadmap  
+- 📅 Day-wise breakdown (concepts + practice problems)  
+- 🔐 JWT-based authentication (Login/Signup)  
+- 📱 Responsive and clean UI  
+- ⚡ Fast AI-powered roadmap generation  
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
 - React  
 - Tailwind CSS  
 - Vite  
 
-### Backend
+## Backend
 - Node.js  
 - Express.js  
 
-### Database
+## Database
 - MongoDB (Mongoose)  
 
-### AI Integration
-- Gemini API (Google Generative AI)  
+## AI Integration
+- Google Gemini API (Generative AI)  
 
-### Deployment
+## Deployment
 - Docker  
 - Google Cloud Run  
 
 ---
 
-## 📦 Project Structure
+# 🧩 System Architecture
 
-```
-My-PromptWarsProject11/
-├── frontend/
-├── backend/
-├── Dockerfile
-└── README.md
-```
+Frontend → Backend → Gemini API → Structured AI Response → UI Display  
 
 ---
 
-## 🚀 How It Works
+# ⚙️ How It Works
 
 1. User selects:
-   - Duration (e.g., 60 days)  
-   - Topics (custom or full DSA)  
+   - Study duration (15 / 60 / 90 days)
+   - Topics (custom or full DSA)
 
-2. Backend sends structured prompt to Gemini API  
+2. Backend processes input and builds a structured prompt  
 
-3. AI generates:
-   - Day-wise roadmap  
-   - Concepts  
-   - Practice problems  
+3. Gemini AI generates:
+   - Day-wise roadmap
+   - Topics + concepts
+   - Practice problem suggestions  
 
-4. Data is stored and displayed in UI  
-
----
-
-## 🧠 AI Usage (Prompt Engineering)
-
-- Dynamic prompt generation based on:
-  - Selected topics  
-  - Duration  
-  - Difficulty level  
-
-- Ensures:
-  - No repetition  
-  - Logical progression  
-  - Topic-specific roadmap  
+4. Response is stored and displayed in the UI  
 
 ---
 
-## 🐳 Run Locally
+# 🧠 AI Integration (Prompt Engineering)
 
-### Clone Repository
+The system uses dynamic prompt engineering based on:
+
+- Selected topics  
+- Duration of study plan  
+- Learning flow structure  
+
+This ensures:
+
+- No random outputs  
+- Logical topic progression  
+- Structured and usable study plans  
+
+---
+
+# 🧪 Testing
+
+- API endpoints tested using Postman  
+- Authentication flow verified (Login/Signup)  
+- Roadmap generation tested with multiple inputs  
+- Edge cases handled for invalid or empty input  
+
+---
+
+# ♿ Accessibility
+
+- Semantic HTML structure used  
+- Responsive design for mobile and desktop  
+- Clear labels and accessible buttons  
+- Simple and readable UI flow  
+
+---
+
+# 🐳 Run Locally
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/PayalKumari10/My-PromptWarsProject11.git
 cd My-PromptWarsProject11
-```
-
----
-
-### Backend Setup
-
-```bash
-cd backend
-npm install
-```
-
-Create `.env` file:
-
-```env
-PORT=5000
-MONGODB_URI=your_mongodb_uri
-JWT_SECRET=your_secret
-GEMINI_API_KEY=your_api_key
-```
-
-Run backend:
-
-```bash
-npm run dev
-```
-
----
-
-### Frontend Setup
-
-```bash
-cd ../frontend
-npm install
-npm run dev
-```
-
----
-
-## 🐳 Docker
-
-```bash
-docker build -t ai-study-planner .
-docker run -p 5000:5000 ai-study-planner
-```
-
----
-
-## 🌐 Deployment
-
-Deployed using **Google Cloud Run**
-
-👉 *(Add your live link here)*
-
----
-
-## 📈 Impact
-
-- Helps students follow a clear DSA path  
-- Saves hours of planning time  
-- Encourages daily consistency  
-- Demonstrates real-world AI integration  
-
----
-
-## 🏆 PromptWars Submission
-
-This project is built as part of **PromptWars Virtual Hackathon**:
-
-- ✅ Functional full-stack application  
-- ✅ AI-powered workflow  
-- ✅ Real-world use case  
-- ✅ Build-in-public ready  
-
----
-
-## 👩‍💻 Author
-
-**Payal Kumari**  
-Software Developer | Open Source Enthusiast  
-
-GitHub: https://github.com/PayalKumari10  
-
----
-
-## 📄 License
-
-MIT License
-
----
-
-## ⭐ Support
-
-If you found this useful:
-
-- ⭐ Star the repo  
-- Share your feedback  
-- Connect on LinkedIn  
-
----
