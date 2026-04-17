@@ -130,3 +130,88 @@ This ensures:
 ```bash
 git clone https://github.com/PayalKumari10/My-PromptWarsProject11.git
 cd My-PromptWarsProject11
+
+---
+
+# Backend Setup
+cd backend
+npm install
+
+---
+
+Create .env file:
+
+PORT=5000
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_secret
+GEMINI_API_KEY=your_api_key
+
+---
+
+Run backend:
+
+npm run dev
+
+---
+Frontend Setup
+cd frontend
+npm install
+npm run dev
+
+---
+
+🐳 Docker
+docker build -t ai-study-planner .
+docker run -p 5000:5000 ai-study-planner
+---
+
+🌐 Deployment
+
+Deployed using Google Cloud Run
+---
+
+👉 Live Link: Add here
+
+---
+
+📈 Impact
+Reduces confusion in DSA preparation
+Provides structured learning paths
+Improves consistency in practice
+Saves time in planning study schedules
+Demonstrates real-world AI integration
+
+---
+
+🏆 PromptWars Submission
+
+This project is part of PromptWars Virtual Hackathon organized by Hack2Skill (H2S) with support from Google for Developers.
+
+It demonstrates:
+
+AI-powered application development
+Real-world problem solving
+Intent-driven development using Google Gemini
+Full-stack deployment on Google Cloud
+
+---
+
+👩‍💻 Author
+
+Payal Kumari
+Software Developer | Open Source Enthusiast
+
+GitHub: https://github.com/PayalKumari10
+
+---
+
+📄 License
+
+MIT License
+
+---
+
+⭐ If you like this project
+Give a ⭐ on GitHub
+Share feedback
+Connect on LinkedIn
